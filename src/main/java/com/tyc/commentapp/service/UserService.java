@@ -34,4 +34,21 @@ public class UserService {
 //    public Optional<User> findById(Long id) {
 //        return userRepository.findById(id);
 //    }
+
+    public Optional<List<User>> orderUserByName() {
+        return userRepository.findAllOptionalByOrderByNameAsc();
+    }
+
+    public Optional<List<User>> findNameContaining(String value) {
+        return userRepository.findAllOptionalByNameContainingIgnoreCase(value);
+    }
+
+    public Optional<List<User>> findEmailContaining(String value) {
+        return userRepository.findAllOptionalByEmailContainingIgnoreCase(value);
+    }
+
+    public Optional<List<User>> findEmailEndingWith(String value) {
+        return userRepository.findAllOptionalByEmailEndingWithIgnoreCase(value);
+    }
+
 }
